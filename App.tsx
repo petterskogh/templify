@@ -1,11 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, StatusBar, TextInput } from 'react-native';
+import Header from './components/Header';
+import { useState } from 'react';
+import { spacing } from './utils/variables';
 
 export default function App() {
+  const [text, setText] = useState<string>('');
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <StatusBar barStyle={'light-content'} />
+      <Header />
+      <TextInput
+        style={styles.textarea}
+        multiline={true}
+        textAlignVertical='top'
+        numberOfLines={50}
+        onChangeText={setText}
+        value={text}/>
     </View>
   );
 }
@@ -13,8 +24,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#000',
   },
+  textarea: {
+    color: '#fff',
+    fontSize: 18,
+    margin: spacing.md
+  }
 });
