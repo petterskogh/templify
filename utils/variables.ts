@@ -12,3 +12,10 @@ export const colors = {
   bg: '#ffffb7',
   contrast: '#000',
 }
+
+export const fontSize = {
+  sm: 14,
+  md: 18,
+  lg: 24,
+  xl: 32,
+}

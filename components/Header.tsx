@@ -20,7 +20,7 @@ export default function Header() {
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    padding: spacing.md,
+    paddingBottom: spacing.md,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
