@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Pressable, TouchableNativeFeedback, TouchableHighlight } from "react-native";
-import { spacing } from "../utils/variables";
+import { colors, spacing } from "../utils/variables";
 
 export default function Header() {
   return (
@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
     padding: spacing.sm
   },
   title: {
-    color: '#fff',
+    color: colors.contrast,
     fontSize: 24,
   },
   text: {
-    color: '#fff',
+    color: colors.contrast,
     fontSize: 18,
   }
 });

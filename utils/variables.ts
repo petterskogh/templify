@@ -5,3 +5,10 @@ export const spacing = {
   lg: 24,
   xl: 40,
 };
+
+export const colors = {
+  primary: '#ffd400',
+  secondary: '#ffea61',
+  bg: '#ffffb7',
+  contrast: '#000',
+}
