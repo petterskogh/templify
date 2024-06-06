@@ -3,7 +3,6 @@ import Header from './components/Header';
 import { useState } from 'react';
 import { colors, spacing } from './utils/variables';
 import Checkbox from './components/Checkbox';
-import NewCheckboxInput from './components/NewCheckboxInput';
 import HandleListOverlay from './components/HandleListOverlay';
 import BottomRow from './components/BottomRow';
 
