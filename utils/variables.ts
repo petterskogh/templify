@@ -7,8 +7,7 @@ export const spacing = {
 };
 
 export const colors = {
-  primary: '#ffd400',
-  secondary: '#ffea61',
+  primary: '#ffea61',
   bg: '#ffffb7',
   contrast: '#000',
 }

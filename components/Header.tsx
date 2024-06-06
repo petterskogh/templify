@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, TouchableNativeFeedback, TouchableHighlight } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { colors, spacing } from "../utils/variables";
 
 export default function Header() {

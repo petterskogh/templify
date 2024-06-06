@@ -9,9 +9,13 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle={'dark-content'} backgroundColor={colors.bg} />
       <Header />
-      <Checkbox label='Grej' />
+      <View style={styles.checkboxes}>
+        <Checkbox label='Shorts' />
+        <Checkbox label='Byxor' />
+        <Checkbox label='Tröja' />
+      </View>
     </View>
   );
 }
@@ -21,5 +25,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.bg,
     padding: spacing.md
+  },
+  checkboxes: {
+    gap: spacing.sm
   }
 });
