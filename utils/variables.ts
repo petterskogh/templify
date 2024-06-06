@@ -10,6 +10,7 @@ export const colors = {
   primary: '#ffea61',
   bg: '#ffffb7',
   contrast: '#000',
+  inputBg: '#f5f5f5',
 }
 
 export const fontSize = {

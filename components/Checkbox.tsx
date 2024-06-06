@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Pressable, TouchableNativeFeedback, TouchableHighlight } from "react-native";
 import { colors, fontSize, spacing } from "../utils/variables";
 import { useState } from "react";
+import { commonStyles } from "../utils/styles";
 
 interface CheckboxProps {
   label: string;
@@ -10,7 +11,7 @@ export default function Checkbox({ label }: CheckboxProps) {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (
-    <Pressable style={[styles.checkboxContainer]} onPress={() => setChecked(!checked)}>
+    <Pressable style={[commonStyles.yellowField]} onPress={() => setChecked(!checked)}>
       <View style={styles.checkbox}>
         {checked && 
           <Text style={styles.checkmark}>✔</Text>
@@ -22,19 +23,6 @@ export default function Checkbox({ label }: CheckboxProps) {
 }
 
 const styles = StyleSheet.create({
-  checkboxContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderRadius: 8,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    backgroundColor: colors.primary,
-    shadowColor: colors.contrast,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 2,
-  },
   checkbox: {
     width: 16,
     height: 16,
