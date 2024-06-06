@@ -13,7 +13,12 @@ export default function App() {
       <StatusBar barStyle={'dark-content'} backgroundColor={colors.bg} />
       <Header />
       <View style={styles.checkboxes}>
-        {checkboxes.map((checkbox, index) => <Checkbox key={index} label={checkbox} />)}
+        {checkboxes.map((checkbox, index) => 
+          <Checkbox 
+            key={index}
+            label={checkbox}
+            onRemove={() => setCheckboxes(checkboxes.filter((_, i) => i !== index))} />
+        )}
       </View>
       <NewCheckboxInput onAdd={(text) => setCheckboxes([...checkboxes, text])} />
     </View>

@@ -1,28 +1,42 @@
-import { View, Text, StyleSheet, Pressable, TouchableNativeFeedback, TouchableHighlight } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { colors, fontSize, spacing } from "../utils/variables";
 import { useState } from "react";
 import { commonStyles } from "../utils/styles";
 
 interface CheckboxProps {
   label: string;
+  onRemove: () => void;
 }
 
-export default function Checkbox({ label }: CheckboxProps) {
+export default function Checkbox({ label, onRemove }: CheckboxProps) {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (
-    <Pressable style={[commonStyles.yellowField]} onPress={() => setChecked(!checked)}>
-      <View style={styles.checkbox}>
-        {checked && 
-          <Text style={styles.checkmark}>✔</Text>
-        }
-      </View>
-      <Text style={styles.label}>{label}</Text>
-    </Pressable>
+    <View style={styles.container}>
+      <Pressable style={[commonStyles.yellowField, styles.button]} onPress={onRemove}>
+        <Text style={styles.buttonText}>🗑</Text>
+      </Pressable>
+      <Pressable style={[commonStyles.yellowField, styles.checkboxContainer]} onPress={() => setChecked(!checked)}>
+        <View style={styles.checkbox}>
+          {checked && 
+            <Text style={styles.checkmark}>✔</Text>
+          }
+        </View>
+        <Text style={styles.label}>{label}</Text>
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm
+  },
+  checkboxContainer: {
+    flex: 1
+  },
   checkbox: {
     width: 16,
     height: 16,
@@ -45,5 +59,11 @@ const styles = StyleSheet.create({
     color: colors.contrast,
     fontSize: fontSize.md,
     marginLeft: spacing.sm,
+  },
+  button: {
+    paddingHorizontal: spacing.sm
+  },
+  buttonText: {
+    fontSize: fontSize.md,
   }
 });
