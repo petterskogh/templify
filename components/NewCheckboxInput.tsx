@@ -10,6 +10,13 @@ interface Props {
 export default function NewCheckboxInput({onAdd}: Props) {
   const [text, setText] = useState<string>('');
 
+  function handleSubmit() {
+    if (text !== '') {
+      onAdd(text);
+      setText('');
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={[commonStyles.yellowField, styles.inputContainer]}>
@@ -18,9 +25,10 @@ export default function NewCheckboxInput({onAdd}: Props) {
           placeholder="Ny artikel"
           value={text}
           onChangeText={setText}
+          onSubmitEditing={handleSubmit}
         />
       </View>
-      <Pressable style={[commonStyles.yellowField]} onPress={() => { onAdd(text); setText(''); }}>
+      <Pressable style={[commonStyles.yellowField]} onPress={handleSubmit}>
         <Text style={styles.buttonText}>+</Text>
       </Pressable>
     </View>
@@ -31,11 +39,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.md
+    flex: 1,
+    gap: spacing.sm
   },
   inputContainer: {
     flex: 1,
+    paddingHorizontal: spacing.sm
   },
   buttonText: {
     color: colors.contrast,

@@ -1,12 +1,15 @@
-import { StyleSheet, View, StatusBar, TextInput } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import Header from './components/Header';
 import { useState } from 'react';
 import { colors, spacing } from './utils/variables';
 import Checkbox from './components/Checkbox';
 import NewCheckboxInput from './components/NewCheckboxInput';
+import HandleListOverlay from './components/HandleListOverlay';
+import BottomRow from './components/BottomRow';
 
 export default function App() {
   const [checkboxes, setCheckboxes] = useState<string[]>([]);
+  const [showListOverlay, setShowListOverlay] = useState<boolean>(false);
 
   return (
     <View style={styles.container}>
@@ -20,7 +23,8 @@ export default function App() {
             onRemove={() => setCheckboxes(checkboxes.filter((_, i) => i !== index))} />
         )}
       </View>
-      <NewCheckboxInput onAdd={(text) => setCheckboxes([...checkboxes, text])} />
+      <BottomRow onAdd={(text) => setCheckboxes([...checkboxes, text])} openHandleListOverlay={() => setShowListOverlay(true)} />
+      <HandleListOverlay show={showListOverlay} closeOverlay={() => setShowListOverlay(false)} />
     </View>
   );
 }
